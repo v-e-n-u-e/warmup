@@ -50,7 +50,7 @@ public class UI extends JFrame {
 	private JTextArea textArea;
 	private JMenuItem Save;
 	private JMenuItem Load;
-	private Game game;
+
 
 	/**
 	 * Launch the application.
