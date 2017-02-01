@@ -15,8 +15,10 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.SoftBevelBorder;
 
+import character.Player;
 import data.ResourceManager;
 import data.SaveData;
+import gameworld.Controller;
 import gameworld.Game;
 
 import java.awt.Toolkit;
@@ -29,6 +31,7 @@ import javax.swing.JList;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -37,7 +40,7 @@ public class UI extends JFrame {
 
 	private JPanel contentPane;
 	private JButton infoButton;
-	private JButton btnNewGame;
+	private JButton button;
 	private JButton button_1;
 	private JButton button_2;
 	private JButton button_3;
@@ -47,10 +50,11 @@ public class UI extends JFrame {
 	private JButton button_7;
 	private JButton button_8;
 	private JButton button_9;
+	private JButton[] bArray;
 	private JTextArea textArea;
 	private JMenuItem Save;
 	private JMenuItem Load;
-
+	public Controller controller;
 
 	/**
 	 * Launch the application.
@@ -165,16 +169,27 @@ public class UI extends JFrame {
 		JPanel buttons = new JPanel();
 		buttons.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		
-		button_1 = new JButton("");
-		btnNewGame = new JButton("New Game");
-		button_2 = new JButton("Load Game");
-		button_4 = new JButton("");
-		button_6 = new JButton("");
-		button_8 = new JButton("");
+		button_2 = new JButton("");
+		button = new JButton("New Game");
+		button_1 = new JButton("Load Game");
 		button_3 = new JButton("");
 		button_5 = new JButton("");
 		button_7 = new JButton("");
+		button_4 = new JButton("");
+		button_6 = new JButton("");
+		button_8 = new JButton("");
 		button_9 = new JButton("");
+		bArray = new JButton[10];
+		bArray[0]=button;
+		bArray[1]=button_1;
+		bArray[2]=button_2;
+		bArray[3]=button_3;
+		bArray[4]=button_4;
+		bArray[5]=button_5;
+		bArray[6]=button_6;
+		bArray[7]=button_7;
+		bArray[8]=button_8;
+		bArray[9]=button_9;
 		
 		JPanel text = new JPanel();
 		text.setBackground(SystemColor.window);
@@ -212,38 +227,38 @@ public class UI extends JFrame {
 					.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_buttons.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(btnNewGame, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
-						.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE))
-					.addGroup(gl_buttons.createParallelGroup(Alignment.LEADING)
-						.addComponent(button_2, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
-						.addComponent(button_3, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE))
-					.addGroup(gl_buttons.createParallelGroup(Alignment.LEADING)
-						.addComponent(button_4, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
+						.addComponent(button, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
 						.addComponent(button_5, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE))
 					.addGroup(gl_buttons.createParallelGroup(Alignment.LEADING)
-						.addComponent(button_6, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
+						.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
+						.addComponent(button_6, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE))
+					.addGroup(gl_buttons.createParallelGroup(Alignment.LEADING)
+						.addComponent(button_2, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
 						.addComponent(button_7, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE))
 					.addGroup(gl_buttons.createParallelGroup(Alignment.LEADING)
-						.addComponent(button_8, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
+						.addComponent(button_3, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
+						.addComponent(button_8, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE))
+					.addGroup(gl_buttons.createParallelGroup(Alignment.LEADING)
+						.addComponent(button_4, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
 						.addComponent(button_9, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE))
 					.addGap(1))
 		);
 		gl_buttons.setVerticalGroup(
 			gl_buttons.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_buttons.createSequentialGroup()
-					.addComponent(btnNewGame, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
-					.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_buttons.createSequentialGroup()
-					.addComponent(button_2, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
-					.addComponent(button_3, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_buttons.createSequentialGroup()
-					.addComponent(button_4, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
+					.addComponent(button, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
 					.addComponent(button_5, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE))
 				.addGroup(gl_buttons.createSequentialGroup()
-					.addComponent(button_6, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
+					.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
+					.addComponent(button_6, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_buttons.createSequentialGroup()
+					.addComponent(button_2, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
 					.addComponent(button_7, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE))
 				.addGroup(gl_buttons.createSequentialGroup()
-					.addComponent(button_8, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
+					.addComponent(button_3, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
+					.addComponent(button_8, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_buttons.createSequentialGroup()
+					.addComponent(button_4, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
 					.addComponent(button_9, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE))
 				.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
 		);
@@ -284,9 +299,73 @@ public class UI extends JFrame {
 		textArea.append(m);
 		textArea.append("\n\n\n\n============================================================================================================\n\n\n\n");
 	}
-	public void setButtons(){
-		
+	
+	public Player newGame(){
+		textOut("What is your gender?");
+		button.setText("Male");
+		button_1.setText("Female");
+		Player p=new Player(5,5,5,5,5);
+		return p;
 	}
+	
+	public void setButtons(ArrayList<String> actions){
+		int count = 0;
+		for(String s:actions){
+				bArray[count].setText(s);
+		}
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				newGame();
+			}
+		});
+		
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		button_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		button_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		button_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		button_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		button_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		button_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+	}
+
 	
 	private void createEvents(){
 		button_1.addActionListener(new ActionListener() {
@@ -295,9 +374,9 @@ public class UI extends JFrame {
 			}
 		});
 		
-		btnNewGame.addActionListener(new ActionListener() {
+		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				newGame();
 			}
 		});
 		
