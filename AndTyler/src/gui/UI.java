@@ -284,6 +284,9 @@ public class UI extends JFrame {
 		textArea.append(m);
 		textArea.append("\n\n\n\n============================================================================================================\n\n\n\n");
 	}
+	public void setButtons(){
+		
+	}
 	
 	private void createEvents(){
 		button_1.addActionListener(new ActionListener() {
