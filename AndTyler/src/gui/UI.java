@@ -55,6 +55,7 @@ public class UI extends JFrame {
 	private JMenuItem Save;
 	private JMenuItem Load;
 	public Controller controller;
+	public Game game;
 
 	/**
 	 * Launch the application.
@@ -308,115 +309,76 @@ public class UI extends JFrame {
 		return p;
 	}
 	
+	public String actionReturn(JButton button){
+		return button.getText();
+	}
+	
 	public void setButtons(ArrayList<String> actions){
 		int count = 0;
 		for(String s:actions){
 				bArray[count].setText(s);
 		}
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				newGame();
-			}
-		});
-		
-		button_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
-		button_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
-		button_6.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
-		button_8.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		
-		button_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
-		button_5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
-		button_7.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
-		button_9.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 	}
 
 	
 	private void createEvents(){
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textOut("test");
+				actionReturn(button_1);
 			}
 		});
 		
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				newGame();
+				actionReturn(button);
 			}
 		});
 		
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				actionReturn(button_2);
 			}
 		});
 		
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				actionReturn(button_4);
 			}
 		});
 		
 		button_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				actionReturn(button_6);
 			}
 		});
 		
 		button_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				actionReturn(button_8);
 			}
 		});
 		
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				actionReturn(button_3);
 			}
 		});
 		
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				actionReturn(button_5);
 			}
 		});
 		
 		button_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				actionReturn(button_7);
 			}
 		});
 		
 		button_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				actionReturn(button_9);
 			}
 		});
 		
